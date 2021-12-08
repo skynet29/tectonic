@@ -329,25 +329,10 @@ function compute(info) {
 			cell.pos.forEach((pos) => {
 				//console.log('check pos', pos)
 				Object.entries(cell.adjGrp).forEach(([key, value]) => {
-					//console.log('check group', key, groups[key], value)
-					//console.log('key', key, 'value', value)
 					const occurInGroup = getNbPosByGroup(board, groups[key], pos)
 					const occurInAdj = getNbPosByGroup(board, value, pos)
 
 					if (occurInGroup != 0 && occurInAdj == occurInGroup) {
-						// console.log('FOUND', cellIdx, cell.pos, pos, cell.adjGrp)
-						// console.log('occur', key, occurInGroup, occurInAdj, value)
-						// groups[key].forEach((i) => {
-						// 	console.log('cellGrp=', i, board[i].value, board[i].pos)
-						// })
-						// let cells = []
-						// Object.values(cell.adjGrp).forEach((i) => {
-						// 	cells = cells.concat(i)
-						// })
-						// //console.log('cells', cells)
-						// cells.forEach((i) => {
-						// 	console.log('cell=', i, board[i].pos)
-						// })
 						if (removePos(cell, pos)) {
 							hasChange = true
 						}
@@ -356,7 +341,6 @@ function compute(info) {
 			})
 
 		})
-
 
 
 		//console.log(board)
